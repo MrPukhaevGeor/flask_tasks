@@ -22,7 +22,11 @@ def promotion():
 def image_mars():
     return '''<html><title>Привет, Марс!</title><h1>Жди нас, Марс!</h1><img src="static/Images/mars.png" alt="Mars surface" width=500 height=500><br><br>Вот она красная планета!</html>'''
 
-
+@app.route('/training/<prof>')
+def training(prof):
+    if ('инженер' in prof or 'строитель' in prof):
+        return render_template('training.html', title='Инженерные тренажеры')
+    return render_template('training.html', title='Научные симуляторы')
 @app.route('/promotion_image')
 def promotion_image():
     return '''<!DOCTYPE html>
